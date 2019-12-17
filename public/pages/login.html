@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background: url("../images/wangqian/bg.jpg");
+        }
+        .login-tit{
+            height: 200px;
+            line-height: 200px;
+            width: 400px;
+            margin: auto;
+        }
+        .login{
+            width: 400px;
+            height: 500px;
+            margin: auto;
+            background: rgba(0,0,0,0.5);
+        }
+        .login-btn{
+            border: 1px silver solid;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: auto;
+            cursor: pointer;
+            color: whitesmoke;
+            border-radius: 5px;
+        }
+        .login-btn:hover{
+            background: rgba(0,0,0,0.8);
+        }
+        .user{
+            width: 400px;
+            height: 350px;
+            text-align: center;
+            line-height: 80px;
+            color: whitesmoke;
+        }
+        .username{
+            padding-top: 120px;
+        }
+        .input-text{
+            width: 250px;
+            height: 40px;
+            font-size: 22px;
+            border: none;
+            border-bottom: 1px whitesmoke solid;
+            background-color: transparent;
+            color: whitesmoke;
+        }
+
+        input:focus{
+            outline: none;
+        }
+        a {
+            text-decoration: none;
+            out-line: none;
+            color: black;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<h1 class="login-tit">欢迎登录玖宠后台管理系统</h1>
+<div class="login">
+    <div class="user">
+        <div class="username">
+            用户名：<input type="text" class="input-text"><br>
+        </div>
+        <div class="password">
+            密&nbsp;&nbsp;&nbsp;码：<input class="input-text" type="password">
+        </div>
+
+    </div>
+
+
+        <div class="login-btn">
+            登录
+        </div>
+
+
+</div>
+</body>
+</html>
