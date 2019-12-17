@@ -24,6 +24,9 @@ server.use(bodyParser.json());
 server.get("/nav",function(req,res){
     res.render("nav");
 });
+server.get("/adv",function(req,res){
+    res.render("adv");
+});
 server.get("/customer",function(req,res){
     res.render("customer");
 });
