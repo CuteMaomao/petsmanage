@@ -1,0 +1,120 @@
+@import "demo";
+.person img{
+    width: @wid2;
+}
+.manage-left{
+    width: @wid2*2;
+    background: @bg1;
+    padding: @pad1;
+    float: left;
+    padding-bottom: 200px;
+    nav {
+        margin-top: 30px;
+        ul > li {
+            height: @heig1;
+            line-height: @heig1;
+            font-size: @fon2;
+        }
+    }
+}
+.person{
+    text-align: center;
+}
+.manage-title{
+    font-size: @fon4;
+    color: @col6;
+    font-weight: bolder;
+}
+.manage-top{
+    float: right;
+    width: 78%;
+    background: @bg1;
+    height: @heig3;
+    div{
+        float: right;
+        font-size: @fon3;
+        margin-right: @fon3;
+    }
+}
+.manage-top-all{
+    position: relative;
+}
+.manage-top>div span,.manage-top>div i{
+    font-size: @fon2;
+    color: @col1;
+    line-height: @heig3;
+}
+.manage-head {
+    border-radius: 50%;
+    width: @wid3;
+}
+#showList{
+    cursor: pointer;
+}
+.manage-top-all>a{
+    div{
+        width: 106px;
+        height: @heig2;
+        line-height: @heig2;
+        text-align: center;
+        font-size: @fon1;
+        position: absolute;
+        top: @heig3;
+        left: 0;
+        z-index: 999;
+        padding: 5px 0;
+        margin: 2px 0 0;
+        background: @col1;
+        border: 1px solid @col4;
+        border-radius: 2px;
+        box-shadow: @boxsha;
+        color: @col2;
+        &:hover{
+            color: @col5;
+            background: @col3;
+        }
+    }
+}
+.hide {
+    display: none;
+}
+.arrow.top {
+    left: 50%;
+    margin-left: -8px;
+    border-top-width: 0;
+    border-bottom-color:@col1;
+    top: -8px;
+}
+.arrow,.arrow::after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+.arrow {
+    border-width: 8px;
+    z-index: 1000;
+}
+.manage-nav>ul>li{
+    height: @heig1;
+    line-height: @heig1;
+    a{
+        font-size: @fon1;
+        display: block;
+        height: @heig1;
+    }
+}
+.layui-nav-li-before{
+    background: rgba(78,84,101,0.5);
+}
+.layui-nav-li-after{
+    background: rgba(78,84,101,1);
+}
+.layui-nav-a-before{
+    color: rgba(255,255,255,0.7);
+}
+.layui-nav-a-after {
+    color: rgba(255, 255, 255, 1);
+}

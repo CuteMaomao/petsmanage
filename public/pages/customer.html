@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>客户管理</title>
+    <link rel="stylesheet" href="../util/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/customer.css">
+    <link rel="stylesheet" href="../fonts/hq/iconfont.css">
+    <script src="../util/jquery-3.4.1.min.js"></script>
+    <script src="../util/layui/layui.js"></script>
+</head>
+<body>
+<%-include('nav.html')-%>
+<div class="customer">
+    <p class="customer-title">
+        <h2>用户管理</h2>
+    </p>
+    <div class="search-box">
+        <input class="layui-input" type="text" placeholder="请输入用户名或电话号码">
+        <button class="layui-btn layui-btn-normal">搜索</button>
+    </div>
+    <div class="add-box">
+        <button id="btn-add" data-method="notice" class="layui-btn ope-btn">新增</button>
+    </div>
+    <div class="customer-table">
+        <table class="layui-table">
+            <thead>
+            <tr>
+                <td>编号</td>
+                <td>用户名</td>
+                <td>性别</td>
+                <td>电话</td>
+                <td>地址</td>
+                <td>订单数量</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1001</td>
+                <td>阿毛</td>
+                <td>女</td>
+                <td>18683305738</td>
+                <td>成都</td>
+                <td>120</td>
+                <td>
+                    <button data-method="notice" class="layui-btn layui-btn-sm layui-btn-normal ope-btn">查看</button>
+                    <button class="layui-btn layui-btn-sm layui-btn-warm">编辑</button>
+                    <button data-method="offset" data-type="auto" class="layui-btn layui-btn-sm layui-btn-danger ope-btn">删除</button>
+                    <button class="layui-btn layui-btn-sm layui-btn-primary">拉黑</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 显示页数 -->
+    <div class="layui-row">
+        <nav class="customer-page-box layui-row">
+            <a href="#" id="page-left">&laquo;</a>
+            <ul id="page-li" class="pagination">
+                <li class="active"><a href="#">1</a></li>
+            </ul>
+            <a href="#" id="page-right">&raquo;</a>
+        </nav>
+    </div>
+
+</div>
+</body>
+<script>
+    layui.use('layer', function(){
+        var $ = layui.jquery, layer = layui.layer;
+
+        //触发事件
+        var active = {
+            notice: function(){
+                layer.open({
+                    type: 1
+                    ,title: '新增客户'
+                    ,closeBtn: true
+                    ,area: '500px;'
+                    ,shade: 0.8
+                    ,id: 'add'
+                    ,btn: ['确定', '取消']
+                    ,btnAlign: 'c'
+                    ,moveType: 1 //拖拽
+                    ,content: '<form class="modal-form layui-form">\n' +
+                        '        <div class="layui-form-item">\n' +
+                        '            <label class="layui-form-label-col">编号：</label>\n' +
+                        '            <input class="layui-input" type="text">\n' +
+                        '        </div>\n' +
+                        '        <div class="layui-form-item">\n' +
+                        '            <label class="">姓名：</label>\n' +
+                        '            <input class="layui-input" type="text">\n' +
+                        '        </div>\n' +
+                        '        <div class="layui-form-item">\n' +
+                        '            <label class="">性别：</label>\n' +
+                        '            <input class="layui-input" type="text">\n' +
+                        '        </div>\n' +
+                        '        <div class="layui-form-item">\n' +
+                        '            <label class="">电话：</label>\n' +
+                        '            <input class="layui-input" type="text">\n' +
+                        '        </div>\n' +
+                        '    </form>'
+                    ,success: function(layero){
+                        //确定按钮
+
+                    }
+                });
+            },
+            offset: function(othis){
+                var type = othis.data('type')
+                layer.open({
+                    type: 1
+                    ,offset: type
+                    ,id: ''+type
+                    ,content: '<div style="padding: 20px 100px;">确定要删除吗</div>'
+                    ,btn: ['确定','取消']
+                    ,btnAlign: 'c'
+                    ,shade: 0.1
+                    ,yes: function(){
+                        layer.closeAll();
+                    }
+                });
+            }
+        };
+        //按钮点击出现模态框
+        $('.ope-btn').on('click', function(){
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+
+    });
+</script>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航</title>
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../util/layui/css/layui.css">
+</head>
+<body>
+<div class="manage-left">
+    <div class="person">
+        <img src="../images/huangqian/logo.png">
+        <p class="manage-title">玖宠网后台管理系统</p>
+    </div>
+    <nav class="manage-nav">
+        <ul id="manage-ul">
+            <li class="layui-nav-li-after">
+                <a href="/nav" class="layui-nav-a-after">
+                    <i class="iconfont icon-guanggaogongguan"></i>
+                    <span>首页广告管理</span>
+                </a>
+            </li>
+            <li class="layui-nav-li-before">
+                <a href="/customer" class="layui-nav-a-before">
+                    <i class="iconfont icon-yonghu"></i>
+                    <span>用户管理</span>
+                </a>
+            </li>
+            <li class="layui-nav-li-before">
+                <a href="#" class="layui-nav-a-before">
+                    <i class="iconfont icon-shangpin"></i>
+                    <span>商品管理</span>
+                </a>
+            </li>
+            <li class="layui-nav-li-before">
+                <a href="#" class="layui-nav-a-before">
+                    <i class="iconfont icon-dingdan"></i>
+                    <span>订单管理</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="manage-top">
+    <div class="manage-top-all">
+        <a id="showList">
+            <img src="../images/huangqian/girl.jpg" class="manage-head">
+            <span>阿毛</span>
+            <span class="layui-icon layui-icon-triangle-d"></span>
+            <div id="log-btn" class="hide" href="#">
+                <span class="arrow top"></span>退出
+            </div>
+        </a>
+    </div>
+
+</div>
+</body>
+<script src="../util/jquery-3.4.1.min.js"></script>
+<script>
+    var showBtn=$('#showList');
+    var logBtn=$('#log-btn');
+    //显示退出按钮
+    showBtn.click(function(){
+        logBtn.toggleClass('hide');
+    })
+    //退出登录
+    logBtn.click(function () {
+        
+    })
+    //导航点击效果
+    var aLi=$('#manage-ul li');
+    var aA=$('#manage-ul li a');
+    var n=0;
+    aLi.click(function () {
+        n=$(this).index();
+        for (var i=0;i<aLi.length;i++){
+            aLi.removeClass('layui-nav-li-after');
+            aLi.removeClass('layui-nav-li-before');
+            aA.removeClass('layui-nav-a-after');
+            aA.removeClass('layui-nav-a-before');
+        }
+        aLi.eq(n).addClass('layui-nav-li-after').siblings().addClass('layui-nav-li-before');
+        console.log(aA.eq(n).parent().siblings())
+        aA.eq(n).addClass('layui-nav-a-after').parent().siblings().children(0).addClass('layui-nav-a-before');
+    });
+</script>
+</html>

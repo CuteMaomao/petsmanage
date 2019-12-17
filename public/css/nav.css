@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  width: 1200px;
+}
+ul,
+li,
+th,
+td {
+  text-align: center;
+}
+a {
+  display: block;
+}
+.input1 {
+  display: block;
+  width: 80%;
+  padding: 6px 12px;
+  font-size: 15px;
+  color: #33CA97;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.person img {
+  width: 100px;
+}
+.manage-left {
+  width: 200px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px 30px;
+  float: left;
+  padding-bottom: 200px;
+}
+.manage-left nav {
+  margin-top: 30px;
+}
+.manage-left nav ul > li {
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+}
+.person {
+  text-align: center;
+}
+.manage-title {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: bolder;
+}
+.manage-top {
+  float: right;
+  width: 78%;
+  background: rgba(0, 0, 0, 0.8);
+  height: 50px;
+}
+.manage-top div {
+  float: right;
+  font-size: 20px;
+  margin-right: 20px;
+}
+.manage-top-all {
+  position: relative;
+}
+.manage-top > div span,
+.manage-top > div i {
+  font-size: 15px;
+  color: #fff;
+  line-height: 50px;
+}
+.manage-head {
+  border-radius: 50%;
+  width: 30px;
+}
+#showList {
+  cursor: pointer;
+}
+.manage-top-all > a div {
+  width: 106px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 14px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 999;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  color: #000;
+}
+.manage-top-all > a div:hover {
+  color: #262626;
+  background: #f5f5f5;
+}
+.hide {
+  display: none;
+}
+.arrow.top {
+  left: 50%;
+  margin-left: -8px;
+  border-top-width: 0;
+  border-bottom-color: #fff;
+  top: -8px;
+}
+.arrow,
+.arrow::after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.arrow {
+  border-width: 8px;
+  z-index: 1000;
+}
+.manage-nav > ul > li {
+  height: 40px;
+  line-height: 40px;
+}
+.manage-nav > ul > li a {
+  font-size: 14px;
+  display: block;
+  height: 40px;
+}
+.layui-nav-li-before {
+  background: rgba(78, 84, 101, 0.5);
+}
+.layui-nav-li-after {
+  background: #4e5465;
+}
+.layui-nav-a-before {
+  color: rgba(255, 255, 255, 0.7);
+}
+.layui-nav-a-after {
+  color: #ffffff;
+}
