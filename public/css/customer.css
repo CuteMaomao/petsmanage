@@ -121,6 +121,9 @@ a {
 #lookCustomer input {
   cursor: not-allowed;
 }
+#editCustomer input:disabled {
+  cursor: not-allowed;
+}
 .modal-form {
   padding: 20px 30px;
 }
