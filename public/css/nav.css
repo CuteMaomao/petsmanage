@@ -17,7 +17,7 @@ a {
 }
 .input1 {
   display: block;
-  width: 80%;
+  width: 300px;
   padding: 6px 12px;
   font-size: 15px;
   color: #33CA97;
@@ -33,7 +33,10 @@ a {
   background: rgba(0, 0, 0, 0.8);
   padding: 20px 30px;
   float: left;
+  position: absolute;
   padding-bottom: 200px;
+  z-index: 99;
+  top: 50px;
 }
 .manage-left nav {
   margin-top: 30px;
@@ -53,7 +56,7 @@ a {
 }
 .manage-top {
   float: right;
-  width: 79%;
+  width: 100%;
   background: rgba(0, 0, 0, 0.8);
   height: 50px;
 }
@@ -79,7 +82,7 @@ a {
   cursor: pointer;
 }
 .manage-top-all > a div {
-  width: 106px;
+  width: 100px;
   height: 35px;
   line-height: 35px;
   text-align: center;

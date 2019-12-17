@@ -17,7 +17,7 @@ a {
 }
 .input1 {
   display: block;
-  width: 80%;
+  width: 300px;
   padding: 6px 12px;
   font-size: 15px;
   color: #33CA97;
@@ -26,8 +26,7 @@ a {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 .customer {
-  width: 73.5%;
-  margin: 0 272px;
+  margin: 0 0 0 270px;
   background: #fff;
   padding: 20px 30px;
 }
@@ -49,7 +48,7 @@ a {
 }
 .search-box input {
   display: block;
-  width: 80%;
+  width: 300px;
   padding: 6px 12px;
   font-size: 15px;
   color: #33CA97;
@@ -72,7 +71,7 @@ a {
   float: left;
 }
 .search-box {
-  margin-left: 60%;
+  margin-left: 510px;
   margin-bottom: 65px;
 }
 .modal-form {
@@ -83,11 +82,11 @@ a {
   float: left;
 }
 .modal-form label {
-  font-size: 16px;
+  font-size: 20px;
 }
 .modal-form input {
   display: block;
-  width: 80%;
+  width: 300px;
   padding: 6px 12px;
   font-size: 15px;
   color: #33CA97;

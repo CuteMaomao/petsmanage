@@ -24,6 +24,12 @@ server.use(bodyParser.json());
 server.get("/nav",function(req,res){
     res.render("nav");
 });
+server.get("/login",function(req,res){
+    res.render("login");
+});
+server.get("/ordermangement",function(req,res){
+    res.render("ordermangement");
+});
 server.get("/adv",function(req,res){
     res.render("adv");
 });
