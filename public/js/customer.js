@@ -10,7 +10,7 @@ layui.use('layer', function(){
                 ,closeBtn: 1
                 ,area: '500px;'
                 ,shade: 0.8
-                ,id: 'add'
+                ,id: 'lookCustomer'
                 ,btn: ['确定', '取消']
                 ,btnAlign: 'c'
                 ,moveType: 1 //拖拽
@@ -42,7 +42,61 @@ layui.use('layer', function(){
                     '        <label class="">订单数量：</label>\n' +
                     '        <input class="layui-input" type="text" disabled value="120">\n' +
                     '    </div>\n' +
+                    '    <div class="customer-form-item">\n' +
+                    '        <label class="">本月消费金额：</label>\n' +
+                    '        <input class="layui-input" type="text" disabled value="120">\n' +
+                    '    </div>\n' +
                     '</form>'//性别头像高亮
+                ,success: function(layero){
+                    //确定按钮
+
+                }
+            });
+        },
+        notice1: function(){
+            layer.open({
+                type: 1
+                ,title: '编辑信息'
+                ,closeBtn: 1
+                ,area: '500px;'
+                ,shade: 0.8
+                ,id: 'editCustomer'
+                ,btn: ['确定', '取消']
+                ,btnAlign: 'c'
+                ,moveType: 1
+                ,content: '<form class="modal-form layui-form">\n' +
+                    '    <div class="layui-form-item">\n' +
+                    '        <div class="customer-form-hs">\n' +
+                    '            <img src="../images/huangqian/girl.jpg">\n' +
+                    '            <div class="customer-status">普通会员</div>\n' +
+                    '        </div>\n' +
+                    '        <div class="customer-form-name">\n' +
+                    '            <h5 class="customer-form-username">allalallala</h5>\n' +
+                    '            <h5 class="customer-form-othername">（allalallala）</h5>\n' +
+                    '        </div>\n' +
+                    '    </div>\n' +
+                    '    <div class="layui-form-item modal-form-sex">\n' +
+                    '        <label>她/他是一位</label>\n' +
+                    '            <img src="../images/huangqian/boy.jpg">\n' +
+                    '            <img src="../images/huangqian/girl.jpg">\n' +
+                    '    </div>\n' +
+                    '    <div class="customer-form-item">\n' +
+                    '        <label class="">手机号码：</label>\n' +
+                    '        <input class="layui-input" type="text" value="186****5738">\n' +
+                    '    </div>\n' +
+                    '    <div class="customer-form-item">\n' +
+                    '        <label class="">地址：</label>\n' +
+                    '        <input class="layui-input" type="text" value="成都">\n' +
+                    '    </div>\n' +
+                    '    <div class="customer-form-item">\n' +
+                    '        <label class="">订单数量：</label>\n' +
+                    '        <input class="layui-input" type="text" disabled value="120">\n' +
+                    '    </div>\n' +
+                    '    <div class="customer-form-item">\n' +
+                    '        <label class="">本月消费金额：</label>\n' +
+                    '        <input class="layui-input" type="text" disabled value="120">\n' +
+                    '    </div>\n' +
+                    '</form>'
                 ,success: function(layero){
                     //确定按钮
 

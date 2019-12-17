@@ -118,6 +118,9 @@ a {
 .layui-layer-content {
   height: auto!important;
 }
+#lookCustomer input {
+  cursor: not-allowed;
+}
 .modal-form {
   padding: 20px 30px;
 }
@@ -129,7 +132,6 @@ a {
   font-size: 12px;
 }
 .modal-form input {
-  cursor: not-allowed;
   width: 180px;
   color: rgba(127, 128, 121, 0.7);
   display: block;
