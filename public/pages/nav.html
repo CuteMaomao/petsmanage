@@ -43,14 +43,14 @@
 </div>
 <div class="manage-top">
     <div class="manage-top-all">
-        <a id="showList">
+        <div id="showList">
             <img src="../images/huangqian/girl.jpg" class="manage-head">
             <span>阿毛</span>
             <span class="layui-icon layui-icon-triangle-d"></span>
-            <div id="log-btn" class="hide" href="#">
-                <span class="arrow top"></span>退出
+            <div id="log-btn" class="hide">
+                <a href="/login"><span class="arrow top"></span>退出</a>
             </div>
-        </a>
+        </div>
     </div>
 
 </div>
@@ -62,10 +62,6 @@
     //显示退出按钮
     showBtn.click(function(){
         logBtn.toggleClass('hide');
-    })
-    //退出登录
-    logBtn.click(function () {
-        location.herf='/login'
     })
     //导航点击效果
     var aLi=$('#manage-ul li');

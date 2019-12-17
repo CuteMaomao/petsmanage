@@ -33,19 +33,19 @@
     width: 100%;
     background: @bg1;
     height: @heig3;
-    div{
+    .manage-top-all{
         float: right;
         font-size: @fon3;
         margin-right: @fon3;
+        position: relative;
     }
-}
-.manage-top-all{
-    position: relative;
-}
-.manage-top>div span,.manage-top>div i{
-    font-size: @fon2;
-    color: @col1;
-    line-height: @heig3;
+    div{
+        span,i{
+            font-size: @fon2;
+            color: @col1;
+            line-height: @heig3;
+        }
+    }
 }
 .manage-head {
     border-radius: 50%;
@@ -54,8 +54,8 @@
 #showList{
     cursor: pointer;
 }
-.manage-top-all>a{
-    div{
+#log-btn{
+    a{
         width: @wid2;
         height: @heig2;
         line-height: @heig2;
@@ -72,10 +72,10 @@
         border-radius: 2px;
         box-shadow: @boxsha;
         color: @col2;
-        &:hover{
-            color: @col5;
-            background: @col3;
-        }
+    }
+    &:hover{
+        color: @col5;
+        background: @col3;
     }
 }
 .hide {

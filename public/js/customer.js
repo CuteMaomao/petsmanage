@@ -6,7 +6,7 @@ layui.use('layer', function(){
         notice: function(){
             layer.open({
                 type: 1
-                ,title: '新增客户'
+                ,title: '查看信息'
                 ,closeBtn: 1
                 ,area: '500px;'
                 ,shade: 0.8
@@ -15,23 +15,34 @@ layui.use('layer', function(){
                 ,btnAlign: 'c'
                 ,moveType: 1 //拖拽
                 ,content: '<form class="modal-form layui-form">\n' +
-                    '        <div class="layui-form-item">\n' +
-                    '            <label class="layui-form-label-col">编号：</label>\n' +
-                    '            <input class="layui-input" type="text">\n' +
+                    '    <div class="layui-form-item">\n' +
+                    '        <div class="customer-form-hs">\n' +
+                    '            <img src="../images/huangqian/girl.jpg">\n' +
+                    '            <div class="customer-status">普通会员</div>\n' +
                     '        </div>\n' +
-                    '        <div class="layui-form-item">\n' +
-                    '            <label class="">姓名：</label>\n' +
-                    '            <input class="layui-input" type="text">\n' +
+                    '        <div class="customer-form-name">\n' +
+                    '            <h5 class="customer-form-username">allalallala</h5>\n' +
+                    '            <h5 class="customer-form-othername">（allalallala）</h5>\n' +
                     '        </div>\n' +
-                    '        <div class="layui-form-item">\n' +
-                    '            <label class="">性别：</label>\n' +
-                    '            <input class="layui-input" type="text">\n' +
-                    '        </div>\n' +
-                    '        <div class="layui-form-item">\n' +
-                    '            <label class="">电话：</label>\n' +
-                    '            <input class="layui-input" type="text">\n' +
-                    '        </div>\n' +
-                    '    </form>'
+                    '    </div>\n' +
+                    '    <div class="layui-form-item modal-form-sex">\n' +
+                    '        <label>她/他是一位</label>\n' +
+                    '            <img src="../images/huangqian/boy.jpg">\n' +
+                    '            <img src="../images/huangqian/girl.jpg">\n' +
+                    '    </div>\n' +
+                    '    <div class="customer-form-item">\n' +
+                    '        <label class="">手机号码：</label>\n' +
+                    '        <input class="layui-input" type="text" disabled value="186****5738">\n' +
+                    '    </div>\n' +
+                    '    <div class="customer-form-item">\n' +
+                    '        <label class="">地址：</label>\n' +
+                    '        <input class="layui-input" type="text" disabled value="成都">\n' +
+                    '    </div>\n' +
+                    '    <div class="customer-form-item">\n' +
+                    '        <label class="">订单数量：</label>\n' +
+                    '        <input class="layui-input" type="text" disabled value="120">\n' +
+                    '    </div>\n' +
+                    '</form>'//性别头像高亮
                 ,success: function(layero){
                     //确定按钮
 
@@ -41,7 +52,8 @@ layui.use('layer', function(){
         offset: function(othis){
             var type = othis.data('type')
             layer.open({
-                type: 1
+                title: '删除提示'
+                ,type: 1
                 ,offset: type
                 ,id: ''+type
                 ,content: '<div style="padding: 20px 100px;">确定要删除吗</div>'

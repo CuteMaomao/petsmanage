@@ -17,7 +17,6 @@ a {
 }
 .input1 {
   display: block;
-  width: 300px;
   padding: 6px 12px;
   font-size: 15px;
   color: #33CA97;
@@ -39,22 +38,70 @@ a {
 .customer-title {
   height: 50px;
 }
-.search-box > input::placeholder {
-  color: rgba(127, 128, 121, 0.7);
+.search-box {
+  margin-top: 25px;
+  margin-bottom: 30px;
 }
+.search-box .search-box-line {
+  width: 900px;
+  height: 60px;
+}
+.search-box label,
 .search-box input,
-.search-box button {
+.search-box select {
   float: left;
 }
 .search-box input {
+  margin-right: 65px;
+}
+.search-box select {
+  margin-right: 30px;
+}
+.search-box label {
+  font-size: 16px;
+}
+.search-box input {
   display: block;
-  width: 300px;
   padding: 6px 12px;
   font-size: 15px;
   color: #33CA97;
   background: #fff;
   border-radius: 2px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  width: 270px;
+}
+.search-box input::placeholder {
+  color: rgba(127, 128, 121, 0.7);
+}
+.search-box select {
+  width: 120px;
+  height: 37px;
+  color: #555;
+  padding-left: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.search-box button {
+  margin-left: 195px;
+}
+.customer-table td {
+  font-size: 11px!important;
+}
+.customer-table table img {
+  border-radius: 50%;
+  width: 60px;
+}
+.customer-table select {
+  width: 70px;
+  height: 32px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  margin-left: 2px;
+}
+.customer-table select option {
+  font-size: 12px;
 }
 .customer-page-box {
   float: right;
@@ -70,9 +117,8 @@ a {
   cursor: pointer;
   float: left;
 }
-.search-box {
-  margin-left: 510px;
-  margin-bottom: 65px;
+.layui-layer-content {
+  height: auto!important;
 }
 .modal-form {
   padding: 20px 30px;
@@ -82,15 +128,53 @@ a {
   float: left;
 }
 .modal-form label {
-  font-size: 20px;
+  font-size: 12px;
 }
 .modal-form input {
+  width: 180px;
   display: block;
-  width: 300px;
   padding: 6px 12px;
   font-size: 15px;
   color: #33CA97;
   background: #fff;
   border-radius: 2px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  height: 30px!important;
+}
+.modal-form .customer-form-hs {
+  float: left;
+}
+.modal-form img {
+  float: left;
+  width: 100px;
+  border-radius: 50%;
+}
+.modal-form .customer-status {
+  text-align: center;
+}
+.modal-form .customer-form-name {
+  float: right;
+  padding-top: 40px;
+}
+.modal-form .customer-form-name h5 {
+  width: 250px;
+}
+.modal-form .modal-form-sex {
+  margin-top: 20px;
+}
+.modal-form .modal-form-sex label {
+  height: 90px;
+  line-height: 70px;
+}
+.modal-form .modal-form-sex img {
+  width: 60px;
+  margin-left: 70px;
+  border: 1px solid #33CA97;
+  vertical-align: middle;
+}
+.modal-form .customer-form-item {
+  float: left;
+  width: 170px;
+  margin-right: 50px;
+  margin-bottom: 20px;
 }

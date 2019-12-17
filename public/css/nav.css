@@ -17,7 +17,6 @@ a {
 }
 .input1 {
   display: block;
-  width: 300px;
   padding: 6px 12px;
   font-size: 15px;
   color: #33CA97;
@@ -60,16 +59,14 @@ a {
   background: rgba(0, 0, 0, 0.8);
   height: 50px;
 }
-.manage-top div {
+.manage-top .manage-top-all {
   float: right;
   font-size: 20px;
   margin-right: 20px;
-}
-.manage-top-all {
   position: relative;
 }
-.manage-top > div span,
-.manage-top > div i {
+.manage-top div span,
+.manage-top div i {
   font-size: 15px;
   color: #fff;
   line-height: 50px;
@@ -81,7 +78,7 @@ a {
 #showList {
   cursor: pointer;
 }
-.manage-top-all > a div {
+#log-btn a {
   width: 100px;
   height: 35px;
   line-height: 35px;
@@ -99,7 +96,7 @@ a {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   color: #000;
 }
-.manage-top-all > a div:hover {
+#log-btn:hover {
   color: #262626;
   background: #f5f5f5;
 }

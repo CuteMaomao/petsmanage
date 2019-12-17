@@ -1,6 +1,5 @@
 @import "demo";
 .customer{
-
     margin: @mar1;
     background: @col1;
     padding: @pad1;
@@ -14,15 +13,64 @@
 .customer-title{
     height: @heig3;
 }
-.search-box>input::placeholder{
-    color: @col9;
-}
 .search-box{
-    input,button{
+    margin-top: 25px;
+    margin-bottom: 30px;
+    .search-box-line{
+        width: 900px;
+        height: 60px;
+    }
+    label,input,select{
         float: left;
     }
     input{
+        margin-right: 65px;
+    }
+    select{
+        margin-right: 30px;
+    }
+    label{
+        font-size: @fon6;
+    }
+    input{
         .input1();
+        width: 270px;
+        &::placeholder{
+            color: @col9;
+        }
+    }
+    select{
+        width: @wid3*4;
+        height: 37px;
+        color: @col10;
+        padding-left: 20px;
+        background: @col1;
+        border: 1px solid @col4;
+        box-shadow: @boxsha2;
+    }
+    button{
+        margin-left: 195px;
+    }
+}
+.customer-table {
+    td{
+        font-size: 11px!important;
+    }
+    table img{
+        border-radius: 50%;
+        width: @wid3*2;
+    }
+    select{
+        width: 70px;
+        height: 32px;
+        background: @col1;
+        border: 1px solid @col4;
+        box-shadow: @boxsha2;
+        margin-left: 2px;
+        option
+        {
+            font-size: @fon7;
+        }
     }
 }
 .customer-page-box{
@@ -37,9 +85,9 @@
     cursor: pointer;
     float: left;
 }
-.search-box{
-    margin-left: 510px;
-    margin-bottom: 65px;
+//表单
+.layui-layer-content{
+    height: auto!important;
 }
 .modal-form{
     padding: @pad1;
@@ -47,9 +95,48 @@
         float: left;
     }
     label{
-        font-size: 20px;
+        font-size: @fon7;
     }
     input{
+        width: 180px;
         .input1();
+        height: 30px!important;
+    }
+    .customer-form-hs{
+        float: left;
+    }
+    img{
+        float: left;
+        width: @wid2;
+        border-radius: 50%;
+    }
+    .customer-status{
+        text-align: center;
+    }
+    .customer-form-name{
+        float: right;
+        padding-top: 40px;
+        h5{
+            width: 250px;
+        }
+    }
+    .modal-form-sex{
+        margin-top: 20px;
+        label{
+            height: 90px;
+            line-height: 70px;
+        }
+        img{
+            width: @wid3*2;
+            margin-left: 70px;
+            border: 1px solid @col7;
+            vertical-align: middle;
+        }
+    }
+    .customer-form-item{
+        float: left;
+        width: 170px;
+        margin-right: 50px;
+        margin-bottom: 20px;
     }
 }
