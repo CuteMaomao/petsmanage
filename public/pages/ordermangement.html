@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orderMangement</title>
+    <link rel="stylesheet" href="../util/layui/css/layui.css">
+    <script src="../util/jquery-3.4.1.min.js"></script>
+    <script src="../util/layui/layui.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        button,input{
+            border: 1px solid #666666;
+            outline: none;
+            margin: 0;
+            padding: 0;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+        .blue{
+            color: blue;
+        }
+        .gray{
+            color: gray;
+        }
+        body{
+            margin: 0 auto;
+            /*padding-left: 158px;*/
+            padding-top: 77px;
+            background: #f5f5f5;
+        }
+        #orderMangement{
+            margin-left: 200px;
+            height: 100%;
+            padding-top: 50px;
+            background-color: #FFFFFF;
+        }
+        header{
+            padding-left: 80px;
+            height: 60px;
+            padding-right: 80px;
+            /*background-color: red;*/
+            padding-top: 20px;
+            /*background-color: red;*/
+            width: 900px;
+        }
+        .line{
+            height: 0;
+            background: #666666;
+            border: 1px solid #666666;
+            position: absolute;
+            width: 70%;
+            top: 116px;
+            z-index: 0;
+        }
+        .category .lableBox{
+            border: 2px solid #666666;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .category .lableBox span{
+            color: red;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .category .lableBox.active{
+            border-bottom: none;
+            height: 26px;
+            background-color: white;
+            position: relative;
+            z-index: 999;
+        }
+
+        .search-box > input::placeholder {
+            color: rgba(127, 128, 121, 0.7);
+        }
+        .search-box input,
+        .search-box button {
+            float: left;
+        }
+        .search-box input {
+            display: block;
+            width: 300px;
+            padding: 6px 12px;
+            font-size: 15px;
+            color: #33CA97;
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .customer-page-box {
+            float: right;
+            width: 150px;
+        }
+        #page-li > li,
+        #page-left,
+        #page-right {
+            padding: 6px 12px;
+            color: #5BBFDD;
+            background: #fff;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            float: left;
+        }
+        section{
+            padding: 10px 50px 10px 80px;
+        }
+        .search-box {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+<%-include('nav.html')-%>
+<div id="orderMangement">
+    <header>
+        <div class="category">
+            <div class="lableBox active">所有订单</div>
+            <div class="lableBox">待发货 <span>12</span></div>
+            <div class="lableBox">待售后 <span>1</span></div>
+            <div class="searchBox fr">
+                <div class="searchSingle">
+                    <div class="search-box">
+                        <input class="layui-input" type="text" placeholder="请输入订单编号或用户ID">
+                        <button class="layui-btn layui-btn-normal">搜索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+    </header>
+    <section>
+        <div class="customer-table">
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <td>订单编号</td>
+                    <td>用户ID</td>
+                    <td>电话</td>
+                    <td>订单状态</td>
+                    <td>价格</td>
+                    <td>订单数量</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>10000000</td>
+                    <td>阿毛</td>
+                    <td>18683305738</td>
+                    <td>待发货</td>
+                    <td>120.00</td>
+                    <td>
+                        <button data-method="notice" class="layui-btn layui-btn-sm layui-btn-normal ope-btn">查看详情</button>
+                        <button class="layui-btn layui-btn-sm layui-btn-warm">退款</button>
+                        <button data-method="offset" data-type="auto" class="layui-btn layui-btn-sm layui-btn-danger ope-btn">拒绝申请</button>
+                        <button class="layui-btn layui-btn-sm layui-btn-primary">发货</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- 显示页数 -->
+        <div class="layui-row">
+            <nav class="customer-page-box layui-row">
+                <a href="#" id="page-left">&laquo;</a>
+                <ul id="page-li" class="pagination">
+                    <li class="active"><a href="#">1</a></li>
+                </ul>
+                <a href="#" id="page-right">&raquo;</a>
+            </nav>
+        </div>
+    </section>
+</div>
+</body>
+</html>

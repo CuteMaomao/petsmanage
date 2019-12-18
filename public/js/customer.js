@@ -82,11 +82,11 @@ layui.use('layer', function(){
                     '    </div>\n' +
                     '    <div class="customer-form-item">\n' +
                     '        <label class="">手机号码：</label>\n' +
-                    '        <input class="layui-input" type="text" value="186****5738">\n' +
+                    '        <input id="cusPhoneIOne" class="layui-input" type="text" value="186****5738">\n' +
                     '    </div>\n' +
                     '    <div class="customer-form-item">\n' +
                     '        <label class="">地址：</label>\n' +
-                    '        <input class="layui-input" type="text" value="成都">\n' +
+                    '        <input class="layui-input" disabled type="text" value="成都">\n' +
                     '    </div>\n' +
                     '    <div class="customer-form-item">\n' +
                     '        <label class="">订单数量：</label>\n' +
@@ -125,5 +125,13 @@ layui.use('layer', function(){
         var othis = $(this), method = othis.data('method');
         active[method] ? active[method].call(this, othis) : '';
     });
-
 });
+//编辑 只能修改电话号码 点击input会出现完整的电话号码
+$('#cusPhoneIOne').focus(function () {
+    console.log(1)
+    $(this).val('18683305738');
+});
+//清空input数据
+function clearInput(oInput) {
+    oInput.val('');
+}

@@ -36,6 +36,14 @@ server.get("/adv",function(req,res){
 server.get("/customer",function(req,res){
     res.render("customer");
 });
-
+server.get("/ordermangement",function(req,res){
+    res.render("ordermangement");
+});
+server.get("/ordermangementdetails",function(req,res){
+    res.render("ordermangementdetails");
+});
+server.get("/commodity",function(req,res){
+    res.render("commodity");
+});
 //给服务配置端口号
 server.listen(894);

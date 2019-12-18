@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #Commodity{
+            width: 840px;
+            margin: 0 272px;
+            padding: 20px 30px
+        }
+
+    </style>
+    <link rel="stylesheet" href="../util/layui/css/layui.css">
+</head>
+<body style="margin: 0 auto">
+    <%-include('nav.html')-%>
+    <div id="Commodity">
+        <header>
+            <h1 class="layui-row" style="margin-top: 50px;line-height: 50px;font-size: 30px;color: rgba(127, 128, 121, 0.7);">商品管理</h1>
+            <div class="layui-col-md-offset8 layui-inline">
+                <input type="text" placeholder="请输入商品编号" class="layui-input" style="font-size: 15px">
+            </div>
+            <button class="layui-btn layui-btn-normal" style="font-size: 15px">搜索</button>
+            <br>
+            <button class="layui-row layui-btn" style="margin-top: 30px">上架商品</button>
+        </header>
+        <section>
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <th>商品编号</th>
+                    <th>商品图片</th>
+                    <th>商品名称</th>
+                    <th>商品规格</th>
+                    <th>商品类别</th>
+                    <th>商品描述</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+<script src="../util/layui/layui.js"></script>
+</html>
