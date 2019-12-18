@@ -6,7 +6,7 @@ var bodyParser=require('body-parser');
 //引入ejs
 var ejs=require('ejs');
 //引入路由
-
+var customerRouter=require('./public/routers/customerRouter');
 //创建服务
 var server=express();
 //配置浏览器访问的静态文件目录
@@ -21,6 +21,7 @@ server.set('view engine','html');
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 //设置路由
+server.use(customerRouter);
 server.get("/nav",function(req,res){
     res.render("nav");
 });

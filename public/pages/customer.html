@@ -22,6 +22,11 @@
             <div>
                 <label>用户名：</label><input class="layui-input" type="text">
             </div>
+            <div>
+                <label>手机号：</label><input class="layui-input" type="text">
+            </div>
+        </div>
+        <div class="search-box-line">
             <select>
                 <option>省份---</option>
                 <option>北京</option>
@@ -49,11 +54,6 @@
                 <option>天津</option>
                 <option>重庆</option>
             </select>
-        </div>
-        <div class="search-box-line">
-            <div>
-                <label>手机号：</label><input class="layui-input" type="text">
-            </div>
             <select>
                 <option>账号状态---</option>
                 <option>正常</option>
@@ -64,58 +64,58 @@
     </div>
     <div class="customer-table">
         <table id="customer-table" class="layui-table">
-            <thead>
-            <tr>
-                <td></td>
-                <td>用户名</td>
-                <td>昵称</td>
-                <td>性别</td>
-                <td>手机号码</td>
-                <td>地址</td>
-                <td>订单数量</td>
-                <td>本月消费金额</td>
-                <td>操作</td>
-            </tr>
-            </thead>
-            <tbody id="customer-tbody">
-                <tr>
-                    <td>
-                <!-- 头像根据是否在黑名单改变-->
-                        <img src="../images/huangqian/girl.jpg">
-                        <span></span>
-                    </td>
-                    <td>阿毛</td>
-                    <td>洪荒****大计</td>
-                    <td>女</td>
-                    <td>186<span>****</span>5738</td>
-                    <td>成都</td>
-                    <td>120</td>
-                    <td>120</td>
-                    <td class="last-btn">
-                        <button data-method="notice" class="layui-btn layui-btn-sm layui-btn-normal ope-btn">查看</button>
-                        <button data-method="notice1" class="layui-btn layui-btn-sm layui-btn-warm ope-btn">编辑</button>
-                        <button data-method="offset" data-type="auto" class="layui-btn layui-btn-sm layui-btn-danger ope-btn">删除</button>
-                        <select name="">
-                            <option value="0" selected="">更多</option>
-                            <option value="1">发送短信</option>
-                            <option value="2" >加入黑名单</option>
-                            <option value="3">移出黑名单</option>
-                        </select>
-                    </td>
-                </tr>
-            </tbody>
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <td></td>-->
+<!--                <td>用户名</td>-->
+<!--                <td>昵称</td>-->
+<!--                <td>性别</td>-->
+<!--                <td>手机号码</td>-->
+<!--                <td>地址</td>-->
+<!--                <td>订单数量</td>-->
+<!--                <td>本月消费金额</td>-->
+<!--                <td>操作</td>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody id="customer-tbody">-->
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                &lt;!&ndash; 头像根据是否在黑名单改变&ndash;&gt;-->
+<!--                        <img src="../images/huangqian/girl.jpg">-->
+<!--                        <span></span>-->
+<!--                    </td>-->
+<!--                    <td>阿毛</td>-->
+<!--                    <td>洪荒****大计</td>-->
+<!--                    <td>女</td>-->
+<!--                    <td>186<span>****</span>5738</td>-->
+<!--                    <td>成都</td>-->
+<!--                    <td>120</td>-->
+<!--                    <td>120</td>-->
+<!--                    <td class="last-btn">-->
+<!--                        <button data-method="notice" class="layui-btn layui-btn-sm layui-btn-normal ope-btn">查看</button>-->
+<!--                        <button data-method="notice1" class="layui-btn layui-btn-sm layui-btn-warm ope-btn">编辑</button>-->
+<!--                        <button data-method="offset" data-type="auto" class="layui-btn layui-btn-sm layui-btn-danger ope-btn">删除</button>-->
+<!--                        <select name="">-->
+<!--                            <option value="0" selected="">更多</option>-->
+<!--                            <option value="1">发送短信</option>-->
+<!--                            <option value="2" >加入黑名单</option>-->
+<!--                            <option value="3">移出黑名单</option>-->
+<!--                        </select>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
         </table>
     </div>
     <!-- 显示页数 -->
-    <div class="layui-row">
-        <nav class="customer-page-box layui-row">
-            <a href="#" id="page-left">&laquo;</a>
-            <ul id="page-li" class="pagination">
-                <li class="active"><a href="#">1</a></li>
-            </ul>
-            <a href="#" id="page-right">&raquo;</a>
-        </nav>
-    </div>
-
+<!--    <div class="layui-row">-->
+<!--        <nav class="customer-page-box layui-row">-->
+<!--            <a href="#" id="page-left">&laquo;</a>-->
+<!--            <ul id="page-li" class="pagination">-->
+<!--&lt;!&ndash;                <li class="active"><a href="#">1</a></li>&ndash;&gt;-->
+<!--            </ul>-->
+<!--            <a href="#" id="page-right">&raquo;</a>-->
+<!--        </nav>-->
+<!--    </div>-->
+    <div id="page-box"></div>
 </div>
 </body>
