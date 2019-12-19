@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .tab-text {
+            margin-top: 20px;
+        }
+
+        .tab-text-tit {
+            text-align: left !important;
+            margin-top: 30px;
+            width: 120px!important;
+            padding-left: 0!important;
+        }
+
+        .tab-text-cont {
+            margin-left: 135px !important;
+            width: 400px !important;
+        }
+
+        .tab-upload {
+            margin-left: 10px;
+        }
+        .menu-tit{
+            text-align: left !important;
+            width: 120px !important;
+            padding-left: 0 !important;
+        }
+        .upload-tit{
+            margin-right: 35px;
+            padding: 9px 15px;
+            padding-left: 0!important;
+        }
+        .tab-menu {
+            margin-left: 135px !important;
+            width: 200px !important;
+        }
+    </style>
+    <link rel="stylesheet" href="../util/layui/css/layui.css">
+    <script src="../util/jquery-3.4.1.min.js"></script>
+    <script src="../util/layui/layui.js"></script>
+</head>
+<body>
+<div style="padding: 50px; line-height: 22px; background-color: #fff; color: #000000; font-weight: 300;">
+    <span class="upload-tit">上传图片：</span>
+    <div class="layui-upload-drag tab-upload" id="test10">
+        <i class="layui-icon"></i>
+        <p>点击上传，或将文件拖拽到此处</p>
+    </div>
+    <div class="layui-form-item layui-form-text tab-text">
+        <label class="layui-form-label tab-text-tit">请输入商品描述：</label>
+        <div class="layui-input-block tab-text-cont">
+            <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div>
+        <form class="layui-form ">
+            <div class="layui-form-item">
+                <label class="layui-form-label menu-tit">请选择广告版块：</label>
+                <div class="layui-input-block tab-menu">
+                    <select name="interest" lay-filter="selAdv">
+                        <option value="0" selected="">轮播图</option>
+                        <option value="1">主粮</option>
+                        <option value="2">零食</option>
+                        <option value="3">医疗保健</option>
+                        <option value="4">牵引&服饰&玩具</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="layui-form-item layui-form-text tab-text">
+        <label class="layui-form-label tab-text-tit">位置：</label>
+        <div class="layui-input-block tab-text-cont">
+            <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text tab-text">
+        <label class="layui-form-label tab-text-tit">关键字：</label>
+        <div class="layui-input-block tab-text-cont">
+            <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+        form.render();
+    });
+    layui.use('upload', function() {
+        var $ = layui.jquery
+            , upload = layui.upload;
+
+        upload.render({
+            elem: '#test10'
+            ,url: '/upload'
+            ,done: function(res){
+                console.log(res)
+            }
+        });
+    });
+</script>
+</html>

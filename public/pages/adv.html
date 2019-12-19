@@ -30,28 +30,21 @@
             line-height: 50px;
         }
 
+        .table {
+            margin-bottom: 50px;
+        }
+
         .addBtn {
             margin-top: 65px;
         }
-        .tab-img{
+
+        .tab-img {
             width: 200px;
         }
-        .tab-menu{
-            margin:auto !important;
-        }
-        .tab-text{
-            margin-top: 20px;
-        }
-        .tab-text-tit{
-            padding: 0 !important;
-            text-align: left !important;
-            margin-top: 30px;
-        }
-        .tab-text-cont{
-            margin-left: 80px !important;
-        }
-        .tab-upload{
-            margin-left: 10px;
+
+        .paging {
+            float: right;
+
         }
     </style>
     <link rel="stylesheet" href="../util/layui/css/layui.css">
@@ -64,159 +57,174 @@
 <%-include('nav.html')-%>
 <section class="right">
     <h2 class="right-tit">首页广告管理</h2>
-    <button data-method="notice" class="layui-btn ope-btn addBtn">新增</button>
-    <div>
-        <table class="layui-table">
-            <thead>
-            <tr>
-                <td>展示图片</td>
-                <td>商品描述</td>
-                <td>广告展示位置</td>
-                <td>操作</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="tab-img">
-                    <img src="../images/wangqian/goods.jpg">
-                </td>
-                <td>xxxx的描述</td>
-                <td class="">
-                    <form class="layui-form ">
-                        <div class="layui-form-item">
-                            <div class="layui-input-block tab-menu">
-                                <select name="interest" lay-filter="selAdv">
-                                    <option value="0" selected="">轮播图</option>
-                                    <option value="1" >主粮</option>
-                                    <option value="2">零食</option>
-                                    <option value="3">医疗保健</option>
-                                    <option value="4">牵引&服饰&玩具</option>
-                                </select>
-                            </div>
-                        </div>
-                    </form>
 
-                </td>
-                <td>
-                    <div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">
-                        <button class="layui-btn layui-btn-sm layui-btn-warm" data-method="notice">编辑</button>
-                        <button data-method="offset" data-type="auto"
-                            class="layui-btn layui-btn-sm layui-btn-danger ope-btn">删除
-                        </button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="layui-row">
-        <nav class="customer-page-box layui-row">
-            <a href="#" id="page-left">&laquo;</a>
-            <ul id="page-li" class="pagination">
-                <li class="active"><a href="#">1</a></li>
-            </ul>
-            <a href="#" id="page-right">&raquo;</a>
-        </nav>
+    <button data-method="offsetAdd" class="layui-btn ope-btn addBtn">新增</button>
+    <div class="table">
+        <table class="layui-hide" id="test"></table>
+        <!--<table class="layui-table">-->
+            <!--<thead>-->
+            <!--<tr>-->
+                <!--<td>展示图片</td>-->
+                <!--<td>商品描述</td>-->
+                <!--<td>版块</td>-->
+                <!--<td>位置</td>-->
+                <!--<td>关键字</td>-->
+                <!--<td>操作</td>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr data-id="1">-->
+                <!--<td class="tab-img">-->
+                    <!--<img src="../images/wangqian/goods.jpg">-->
+                <!--</td>-->
+                <!--<td>xxxx的描述</td>-->
+                <!--<td>轮播图</td>-->
+                <!--<td>1</td>-->
+                <!--<td>xxx</td>-->
+                <!--<td>-->
+                    <!--<div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">-->
+                        <!--<button class="layui-btn layui-btn-sm layui-btn-warm" data-method="offsetEdi">编辑</button>-->
+                        <!--<button data-method="offsetDel" data-type="auto"-->
+                                <!--class="layui-btn layui-btn-sm layui-btn-danger ope-btn" id="delBtn">删除-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+        <div class="paging" id="demo1"></div>
     </div>
 </section>
 </body>
 <script>
     $(document).ready(function () {
-        layui.use('form',function () {
+
+        //下拉菜单
+        layui.use('form', function () {
             var form = layui.form;
             form.render();
         });
 
-        layui.use('upload',function () {
-            var $ = layui.jquery
-                ,upload = layui.upload;
-
-            var uploadInst = upload.render({
-                elem: '#test1'
-                ,url: '/upload/'
-                ,before: function(obj){
-                    //预读本地文件示例，不支持ie8
-                    obj.preview(function(index, file, result){
-                        $('#demo1').attr('src', result); //图片链接（base64）
-                    });
-                }
-                ,done: function(res){
-                    //如果上传失败
-                    if(res.code > 0){
-                        return layer.msg('上传失败');
-                    }
-                    //上传成功
-                }
-                ,error: function(){
-                    //演示失败状态，并实现重传
-                    var demoText = $('#demoText');
-                    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-                    demoText.find('.demo-reload').on('click', function(){
-                        uploadInst.upload();
-                    });
+        //分页
+        layui.use(['laypage', 'layer'], function () {
+            var laypage = layui.laypage
+                , layer = layui.layer;
+            laypage.render({
+                elem: 'demo1'
+                , count: 70
+                , jump: function (obj) {
+                    console.log(obj)
                 }
             })
         });
 
+        //弹出层
+        $('.layui-btn').on('click', function () {
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+
+        layui.use('table', function(){
+            var table = layui.table;
+
+            table.render({
+                elem: '#test'
+                ,url:'/demo/table/user/'
+                ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                ,cols: [[
+                    {field:'pic', width:300, title: '展示图片'}
+                    ,{field:'dec', width:300, title: '商品描述'}
+                    ,{field:'block', width:200, title: '版块'}
+                    ,{field:'pos', width:100, title: '位置'}
+                    ,{field:'key', title: '关键字', width: 200, minWidth: 200} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                    ,{field:'abr', title: '操作'}
+                ]]
+            });
+        });
         var active = {
-            notice: function(){
+            offsetEdi: function () {
                 //示范一个公告层
                 layer.open({
-                    type: 1
-                    ,title: '编辑具体内容'
-                    ,closeBtn: 1
-                    ,area: '500px;'
-                    ,shade: 0.8
-                    ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
-                    ,btn: ['确定', '取消']
-                    ,btnAlign: 'c'
-                    ,moveType: 1 //拖拽模式，0或者1
-                    ,content: '<div style="padding: 50px; line-height: 22px; background-color: #fff; color: #000000; font-weight: 300;"><span>上传图片：</span>' +
-                    '<div class="layui-upload-drag tab-upload" id="test10">\n' +
-                    '  <i class="layui-icon"></i>\n' +
-                    '  <p>点击上传，或将文件拖拽到此处</p>\n' +
-                    '</div>' +
-                    '  <div class="layui-form-item layui-form-text tab-text">\n' +
-                    '    <label class="layui-form-label tab-text-tit">请输入商品描述：</label>\n' +
-                    '    <div class="layui-input-block tab-text-cont">\n' +
-                    '      <textarea placeholder="请输入内容" class="layui-textarea"></textarea>\n' +
-                    '    </div>\n' +
-                    '  </div>'+
-                    '</div>'
-                    ,success: function(layero){
+                    type: 2
+                    ,
+                    title: '编辑具体内容'
+                    ,
+                    closeBtn: 1
+                    ,
+                    area: ['700px','600px']
+                    ,
+                    shade: 0.8
+                    ,
+                    id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    ,
+                    btn: ['确定', '取消']
+                    ,
+                    btnAlign: 'c'
+                    ,
+                    moveType: 1 //拖拽模式，0或者1
+                    ,
+                    content: '/editAdv'
+                    ,
+                    success: function (layero) {
                         var btn = layero.find('.layui-layer-btn');
                         btn.find('.layui-layer-btn0').attr({
-                            href: 'http://www.layui.com/'
-                            ,target: '_blank'
+                            href: '#'
                         });
                     }
                 });
             }
-            ,offset: function(othis){
+            , offsetAdd: function () {
+                layer.open({
+                    type: 2
+                    ,
+                    title: '新增'
+                    ,
+                    closeBtn: 1
+                    ,
+                    area: ['1000px','500px']
+                    ,
+                    shade: 0.8
+                    ,
+                    id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    ,
+                    btn: ['确定', '取消']
+                    ,
+                    btnAlign: 'c'
+                    ,
+                    moveType: 1 //拖拽模式，0或者1
+                    ,
+                    content: '/addAdv'
+                    ,
+                    success: function (layero) {
+                        var btn = layero.find('.layui-layer-btn');
+                        btn.find('.layui-layer-btn0').attr({
+                            href: '#'
+                        });
+                    }
+                });
+            }
+            , offsetDel: function (othis) {
                 var type = othis.data('type')
-                    ,text = othis.text();
-
+                    , text = othis.text();
+                var oSrc = event.srcElement;
+                var id = oSrc.parent.attr('data-id');
+                console.log(id)
                 layer.open({
                     type: 1
-                    ,title: '确认删除'
-                    ,offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
-                    ,id: 'layerDemo'+type //防止重复弹出
-                    ,content: '<div style="padding: 20px 80px;"><span>您确定要删除此条信息吗？</span></div>'
-                    ,btn: '确定'
-                    ,btnAlign: 'c' //按钮居中
-                    ,shade: 0.1 //不显示遮罩
-                    ,yes: function(){
+                    , title: '确认删除'
+                    , offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                    , id: 'layerDemo' + type //防止重复弹出
+                    , content: '<div style="padding: 20px 80px;"><span>您确定要删除此条信息吗？</span></div>'
+                    , btn: '确定'
+                    , btnAlign: 'c' //按钮居中
+                    , shade: 0.1 //不显示遮罩
+                    , yes: function () {
                         layer.closeAll();
                     }
                 });
             }
         };
 
-        $('#layerDemo .layui-btn').on('click', function(){
-            var othis = $(this), method = othis.data('method');
-            active[method] ? active[method].call(this, othis) : '';
-        });
     })
 </script>
 </html>
