@@ -38,18 +38,14 @@
             margin-top: 65px;
         }
 
-        .tab-img {
-            width: 200px;
-        }
-
-        .paging {
-            float: right;
-
+        .layui-table-cell{
+            height: auto !important;
         }
     </style>
     <link rel="stylesheet" href="../util/layui/css/layui.css">
     <link rel="stylesheet" href="../css/customer.css">
     <link rel="stylesheet" href="../fonts/hq/iconfont.css">
+    <script src="../util/ajax.js"></script>
     <script src="../util/jquery-3.4.1.min.js"></script>
     <script src="../util/layui/layui.js"></script>
 </head>
@@ -62,43 +58,48 @@
     <div class="table">
         <table class="layui-hide" id="test"></table>
         <!--<table class="layui-table">-->
-            <!--<thead>-->
-            <!--<tr>-->
-                <!--<td>展示图片</td>-->
-                <!--<td>商品描述</td>-->
-                <!--<td>版块</td>-->
-                <!--<td>位置</td>-->
-                <!--<td>关键字</td>-->
-                <!--<td>操作</td>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr data-id="1">-->
-                <!--<td class="tab-img">-->
-                    <!--<img src="../images/wangqian/goods.jpg">-->
-                <!--</td>-->
-                <!--<td>xxxx的描述</td>-->
-                <!--<td>轮播图</td>-->
-                <!--<td>1</td>-->
-                <!--<td>xxx</td>-->
-                <!--<td>-->
-                    <!--<div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">-->
-                        <!--<button class="layui-btn layui-btn-sm layui-btn-warm" data-method="offsetEdi">编辑</button>-->
-                        <!--<button data-method="offsetDel" data-type="auto"-->
-                                <!--class="layui-btn layui-btn-sm layui-btn-danger ope-btn" id="delBtn">删除-->
-                        <!--</button>-->
-                    <!--</div>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
+        <!--<thead>-->
+        <!--<tr>-->
+        <!--<td>展示图片</td>-->
+        <!--<td>商品描述</td>-->
+        <!--<td>版块</td>-->
+        <!--<td>位置</td>-->
+        <!--<td>关键字</td>-->
+        <!--<td>操作</td>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr data-id="1">-->
+        <!--<td class="tab-img">-->
+        <!--<img src="../images/wangqian/goods.jpg">-->
+        <!--</td>-->
+        <!--<td>xxxx的描述</td>-->
+        <!--<td>轮播图</td>-->
+        <!--<td>1</td>-->
+        <!--<td>xxx</td>-->
+        <!--<td>-->
+        <!--<div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">-->
+        <!--<button class="layui-btn layui-btn-sm layui-btn-warm" data-method="offsetEdi">编辑</button>-->
+        <!--<button data-method="offsetDel" data-type="auto"-->
+        <!--class="layui-btn layui-btn-sm layui-btn-danger ope-btn" id="delBtn">删除-->
+        <!--</button>-->
+        <!--</div>-->
+        <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
         <!--</table>-->
-        <div class="paging" id="demo1"></div>
+
     </div>
 </section>
 </body>
 <script>
     $(document).ready(function () {
-
+        var abr='        <div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">\n' +
+            '        <button class="layui-btn layui-btn-sm layui-btn-warm" data-method="offsetEdi">编辑</button>\n' +
+            '        <button data-method="offsetDel" data-type="auto"\n' +
+            '        class="layui-btn layui-btn-sm layui-btn-danger ope-btn" id="delBtn">删除\n' +
+            '        </button>\n' +
+            '        </div>'
         //下拉菜单
         layui.use('form', function () {
             var form = layui.form;
@@ -124,23 +125,46 @@
             active[method] ? active[method].call(this, othis) : '';
         });
 
-        layui.use('table', function(){
-            var table = layui.table;
+        function createTable(data) {
+            layui.use('table', function () {
+                var table = layui.table;
 
-            table.render({
-                elem: '#test'
-                ,url:'/demo/table/user/'
-                ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
-                ,cols: [[
-                    {field:'pic', width:300, title: '展示图片'}
-                    ,{field:'dec', width:300, title: '商品描述'}
-                    ,{field:'block', width:200, title: '版块'}
-                    ,{field:'pos', width:100, title: '位置'}
-                    ,{field:'key', title: '关键字', width: 200, minWidth: 200} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
-                    ,{field:'abr', title: '操作'}
-                ]]
+                table.render({
+                    elem: '#test'
+                    , data: data
+                    , cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                    , cols: [[
+                        {field: 'adv_url', width: 300, title: '展示图片',templet: '<div><img src="{{d.adv_url}}"></div>'}
+                        , {field: 'adv_des', width: 300, title: '商品描述'}
+                        , {field: 'adv_block', width: 200, title: '版块'}
+                        , {field: 'adv_pos', width: 100, title: '位置'}
+                        , {field: 'adv_key', title: '关键字', width: 200, minWidth: 200} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                        , {field: 'abr', title: '操作',toolbar:'        <div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">\n' +
+                            '        <button class="layui-btn layui-btn-sm layui-btn-warm" data-method="offsetEdi">编辑</button>\n' +
+                            '        <button data-method="offsetDel" data-type="auto"\n' +
+                            '        class="layui-btn layui-btn-sm layui-btn-danger ope-btn" id="delBtn">删除\n' +
+                            '        </button>\n' +
+                            '        </div>'}
+                    ]]
+                    , page:true
+                });
             });
+        }
+
+
+        ajax({
+            url: '/getData',
+            success: function (res) {
+                var json = JSON.parse(res)
+
+                if (json.error) {
+                    alert('失败！')
+                } else {
+                    createTable(json.data)
+                }
+            }
         });
+
         var active = {
             offsetEdi: function () {
                 //示范一个公告层
@@ -151,7 +175,7 @@
                     ,
                     closeBtn: 1
                     ,
-                    area: ['700px','600px']
+                    area: ['700px', '600px']
                     ,
                     shade: 0.8
                     ,
@@ -181,7 +205,7 @@
                     ,
                     closeBtn: 1
                     ,
-                    area: ['1000px','500px']
+                    area: ['1000px', '500px']
                     ,
                     shade: 0.8
                     ,
